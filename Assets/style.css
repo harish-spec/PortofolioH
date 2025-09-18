@@ -126,7 +126,7 @@
             
             /* Hero Section */
          .hero {
-    height: 75vh; 
+    height: 75px; 
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
     color: white;
 
