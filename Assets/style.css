@@ -240,7 +240,7 @@
             }
             
             .timeline-date {
-                flex: 1;
+                flex: auto;
                 font-weight: 600;
                 color: var(--primary-color);
             }
