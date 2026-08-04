@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harish V - QA Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="Assets/style.css">
     <link rel="icon" type="image/png" href="Assets/portfolio_7867446.png">
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-    <!-- Header/Navigation -->
-    <header>
+    <!-- Header / Navigation -->
+    <header id="mainHeader">
         <div class="container header-container">
-            <div class="logo">Harish <span>V</span></div>
+            <a href="#home" class="logo">Harish <span>V</span></a>
             <nav class="navbar">
                 <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#console" class="nav-link">QA Console</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
+                <div class="nav-underline"></div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -35,17 +37,68 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content reveal-on-scroll">
+                <div class="qa-badge"><span class="pulse-dot"></span> Quality Assurance & Engineering</div>
                 <h1>Harish V</h1>
-                <h2>QA Engineer</h2>
-<P>I am Harish, a QA Engineer with a strong foundation in web development and database testing.
-I specialize in creating test strategies that ensure reliable, scalable, and user-friendly applications.
-With experience in manual testing, SQL, and backend validation, I bridge development and quality assurance.
-I am passionate about continuous learning and delivering high-quality web solutions using modern technologies.
-</P>                
+                <h2 class="typewriter-container">
+                    <span id="typewriter"></span><span class="typewriter-cursor">|</span>
+                </h2>
+                <p>I am Harish, a QA Engineer with a strong foundation in web development and database testing.
+                I specialize in creating test strategies that ensure reliable, scalable, and user-friendly applications.
+                With experience in manual testing, SQL, and backend validation, I bridge development and quality assurance.</p>
+                
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">Hire Me</a>
                     <a href="Assets/Harish_V_Resume.pdf" class="btn btn-secondary" download>Download CV</a>
+                </div>
+
+                <!-- Hero Metrics Stats -->
+                <div class="hero-stats">
+                    <div class="stat-card reveal-scale" style="--delay: 0.1s;">
+                        <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                        <div class="stat-number" data-target="95" data-suffix="%+">0%+</div>
+                        <div class="stat-label">Test Case Coverage</div>
+                    </div>
+                    <div class="stat-card reveal-scale" style="--delay: 0.2s;">
+                        <div class="stat-icon"><i class="fas fa-shield-halved"></i></div>
+                        <div class="stat-number" data-target="30" data-suffix="%">0%</div>
+                        <div class="stat-label">Defect Reduction</div>
+                    </div>
+                    <div class="stat-card reveal-scale" style="--delay: 0.3s;">
+                        <div class="stat-icon"><i class="fas fa-bug"></i></div>
+                        <div class="stat-number" data-target="98" data-suffix="%">0%</div>
+                        <div class="stat-label">On-Time Bug Resolution</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QA Terminal Console Section -->
+    <section id="console" class="qa-console-section">
+        <div class="container">
+            <h2 class="section-title reveal-on-scroll">QA Terminal & Automation Suite</h2>
+            <div class="terminal-card reveal-on-scroll">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <span class="control-dot close"></span>
+                        <span class="control-dot minimize"></span>
+                        <span class="control-dot expand"></span>
+                    </div>
+                    <div class="terminal-status">
+                        <span class="pulse-dot"></span> LIVE SYSTEM STATUS: OPERATIONAL
+                    </div>
+                    <button id="rerunSuiteBtn" class="btn-rerun">
+                        <i class="fas fa-play"></i> Re-Run Suite
+                    </button>
+                </div>
+                <div class="terminal-body" id="terminalLogs">
+                    <div class="log-line info">[INIT] Quality Assurance Environment v3.4 Initialized...</div>
+                    <div class="log-line success">[PASS] Database Schema Integrity & FK Relations Checked (0.012s)</div>
+                    <div class="log-line success">[PASS] Functional Module Regression: 142/142 Scenarios Clean</div>
+                    <div class="log-line success">[PASS] API Endpoint Validation: 200 OK across core services</div>
+                    <div class="log-line success">[PASS] Redmine Defect Lifecycle Sync: 0 Critical Blockers</div>
+                    <div class="log-line highlight">[READY] All Quality Assurance Checks Passed. Ready for Deployment.</div>
                 </div>
             </div>
         </div>
@@ -54,25 +107,25 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title reveal-on-scroll">About Me</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text reveal-left">
                     <p>QA Engineer with hands-on experience in ensuring software quality across web applications by designing and executing functional, regression, and usability test cases. Proficient in SQL and database testing to validate backend logic and ensure data integrity, reducing data-related defects and improving reliability. Skilled in collaborating with cross-functional teams, analyzing defects, and supporting clients to maintain high application uptime. Driven by a passion for problem-solving, continuous learning, and delivering innovative, user-focused solutions with modern technologies.</p>
                     
                     <div class="personal-info">
-                        <div class="info-item">
+                        <div class="info-item reveal-scale" style="--delay: 0.1s;">
                             <span>Name:</span>
                             <p>Harish V</p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item reveal-scale" style="--delay: 0.2s;">
                             <span>Email:</span>
                             <p>harishanvar56@gmail.com</p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item reveal-scale" style="--delay: 0.3s;">
                             <span>From:</span>
                             <p>Chennai, IN</p>
                         </div>
-                        <div class="info-item">
+                        <div class="info-item reveal-scale" style="--delay: 0.4s;">
                             <span>Experience:</span>
                             <p>3+ Years</p>
                         </div>
@@ -85,9 +138,9 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Work Experience</h2>
+            <h2 class="section-title reveal-on-scroll">Work Experience</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2025 - Present</div>
                     <div class="timeline-content">
                         <h3>Junior Software Engineer</h3>
@@ -99,7 +152,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2023 - 2023</div>
                     <div class="timeline-content">
                         <h3>Associate</h3>
@@ -112,7 +165,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                         </ul>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2021 - 2021</div>
                     <div class="timeline-content">
                         <h3>Intern</h3>
@@ -132,9 +185,9 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title reveal-on-scroll">Education</h2>
             <div class="education-grid">
-                <div class="education-item">
+                <div class="education-item reveal-scale">
                     <div class="education-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -152,10 +205,10 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
+            <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
             <div class="skills-container">
                 <!-- QA & Testing Skills -->
-                <div class="skills-category">
+                <div class="skills-category reveal-on-scroll" style="--delay: 0.1s;">
                     <h3><i class="fas fa-bug"></i> QA & Testing</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -163,7 +216,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 90%;"></div>
+                            <div class="skill-bar" data-percent="90" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -172,7 +225,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -181,7 +234,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -190,7 +243,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 90%;"></div>
+                            <div class="skill-bar" data-percent="90" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -199,7 +252,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">88%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 88%;"></div>
+                            <div class="skill-bar" data-percent="88" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -208,7 +261,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%;"></div>
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -217,13 +270,13 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Frontend Skills -->
-                <div class="skills-category">
+                <div class="skills-category reveal-on-scroll" style="--delay: 0.2s;">
                     <h3><i class="fas fa-code"></i> Frontend</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -231,7 +284,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -240,7 +293,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">75%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 75%;"></div>
+                            <div class="skill-bar" data-percent="75" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -249,7 +302,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%;"></div>
+                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -258,13 +311,13 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%;"></div>
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Backend Skills -->
-                <div class="skills-category">
+                <div class="skills-category reveal-on-scroll" style="--delay: 0.3s;">
                     <h3><i class="fas fa-server"></i> Backend</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -272,7 +325,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%;"></div>
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -281,13 +334,13 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%;"></div>
+                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Database Skills -->
-                <div class="skills-category">
+                <div class="skills-category reveal-on-scroll" style="--delay: 0.4s;">
                     <h3><i class="fas fa-database"></i> Databases</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -295,7 +348,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%;"></div>
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -304,7 +357,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">75%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 75%;"></div>
+                            <div class="skill-bar" data-percent="75" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -313,7 +366,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%;"></div>
+                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -322,13 +375,13 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">65%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 65%;"></div>
+                            <div class="skill-bar" data-percent="65" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tools Skills -->
-                <div class="skills-category">
+                <div class="skills-category reveal-on-scroll" style="--delay: 0.5s;">
                     <h3><i class="fas fa-tools"></i> Tools</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -336,7 +389,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">75%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 75%;"></div>
+                            <div class="skill-bar" data-percent="75" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -345,7 +398,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 70%;"></div>
+                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -354,7 +407,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -363,7 +416,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 80%;"></div>
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
                         </div>
                     </div>
                     <div class="skill-item">
@@ -372,7 +425,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" style="width: 85%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
@@ -383,9 +436,9 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title reveal-on-scroll">Get In Touch</h2>
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info reveal-left">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -408,7 +461,7 @@ I am passionate about continuous learning and delivering high-quality web soluti
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form reveal-right" id="contactForm">
                     <div class="form-group">
                         <input type="text" placeholder="Your Name" name="user_name" required>
                     </div>
@@ -443,19 +496,20 @@ I am passionate about continuous learning and delivering high-quality web soluti
                         <li><a href="#about">About</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#skills">Skills</a></li>
+                        <li><a href="#console">QA Console</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
                     <h3>Connect With Me</h3>
                     <div class="social-links">
-                        <a href="https://github.com/harish-spec" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/harish-v-ph6381/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/harish-spec" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/harish-v-ph6381/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Harish V. made with Skill and Passion.</p>
+                <p>&copy; 2026 Harish V. Designed with Apple Aesthetic & Engineering Precision.</p>
             </div>
         </div>
     </footer>
@@ -463,3 +517,4 @@ I am passionate about continuous learning and delivering high-quality web soluti
     <script src="Assets/Script.js"></script>
 </body>
 </html>
+
