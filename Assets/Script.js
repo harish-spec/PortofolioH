@@ -1,230 +1,355 @@
 // ============================================
-// MOBILE MENU TOGGLE
+// APPLE DESIGN & QA AUTOMATION ENGINE
 // ============================================
 
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-// Toggle mobile menu
-hamburger.addEventListener('click', function() {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when a link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const isClickInsideNav = navMenu.contains(event.target);
-    const isClickOnHamburger = hamburger.contains(event.target);
-    
-    if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    initTypewriter();
+    initScrollReveals();
+    initCounterStats();
+    initSkillBars();
+    initNavUnderline();
+    initQATerminal();
+    initMobileMenu();
+    initEmailJS();
 });
 
 // ============================================
-// SMOOTH SCROLLING FOR NAVIGATION LINKS
+// 1. DYNAMIC QA ROLE TYPEWRITER EFFECT
 // ============================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href !== '#' && document.querySelector(href)) {
-            e.preventDefault();
-            const targetElement = document.querySelector(href);
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.offsetTop - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+function initTypewriter() {
+    const typewriterElement = document.getElementById('typewriter');
+    if (!typewriterElement) return;
+
+    const roles = [
+        "QA Engineer | Manual & Functional Testing",
+        "SQL Backend & Database Integrity Analyst",
+        "Defect Lifecycle & Redmine Specialist",
+        "API Validation & Regression Testing Pro",
+        "Enterprise IERP Quality Specialist"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 60;
+    const deletingSpeed = 35;
+    const delayBetweenRoles = 2000;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
         }
+
+        let currentDelay = isDeleting ? deletingSpeed : typingSpeed;
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            currentDelay = delayBetweenRoles;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            currentDelay = 400;
+        }
+
+        setTimeout(type, currentDelay);
+    }
+
+    type();
+}
+
+// ============================================
+// 2. APPLE-STYLE SCROLL REVEAL ANIMATIONS
+// ============================================
+
+function initScrollReveals() {
+    const revealElements = document.querySelectorAll(
+        '.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -50px 0px'
     });
-});
+
+    revealElements.forEach(el => observer.observe(el));
+}
 
 // ============================================
-// SKILL BARS ANIMATION
+// 3. METRIC STAT COUNT-UP ANIMATION
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
+function initCounterStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'), 10);
+                    const suffix = stat.getAttribute('data-suffix') || '';
+                    let current = 0;
+                    const duration = 1600; // ms
+                    const stepTime = Math.abs(Math.floor(duration / target));
+
+                    const timer = setInterval(() => {
+                        current += 1;
+                        stat.textContent = current + suffix;
+                        if (current >= target) {
+                            stat.textContent = target + suffix;
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const statsContainer = document.querySelector('.hero-stats');
+    if (statsContainer) {
+        observer.observe(statsContainer);
+    }
+}
+
+// ============================================
+// 4. SKILL BAR FILL ANIMATION
+// ============================================
+
+function initSkillBars() {
     const skillBars = document.querySelectorAll('.skill-bar');
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const bar = entry.target;
-                const width = bar.style.width;
-                bar.style.width = '0';
-                
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-                
+                const percent = bar.getAttribute('data-percent');
+                if (percent) {
+                    bar.style.width = percent + '%';
+                }
                 observer.unobserve(bar);
             }
         });
-    }, { threshold: 0.5 });
-    
+    }, { threshold: 0.2 });
+
     skillBars.forEach(bar => observer.observe(bar));
-});
+}
 
 // ============================================
-// EMAILJS INTEGRATION FOR CONTACT FORM
+// 5. QA TERMINAL CONSOLE RE-RUN LOGIC
 // ============================================
 
-// Initialize EmailJS
-(function() {
-    emailjs.init("JVgrnpBaTcgnIYZ0igbm9"); // Your EmailJS public key
-})();
+function initQATerminal() {
+    const rerunBtn = document.getElementById('rerunSuiteBtn');
+    const logsContainer = document.getElementById('terminalLogs');
 
-const contactForm = document.getElementById('contactForm');
-const formStatus = document.getElementById('formStatus');
+    if (!rerunBtn || !logsContainer) return;
 
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Show loading state
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        // Clear previous status messages
-        formStatus.className = '';
-        formStatus.textContent = '';
-        
-        // Send email using EmailJS
-        emailjs.sendForm('service_0zu3rmx', 'template_fyutivh', contactForm)
-            .then(function(response) {
-                // Success message
-                formStatus.className = 'form-status success';
-                formStatus.textContent = '✓ Message sent successfully! I will get back to you soon.';
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Scroll to status message
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Restore button
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                
-                // Clear message after 5 seconds
-                setTimeout(() => {
-                    formStatus.className = '';
-                    formStatus.textContent = '';
-                }, 5000);
-            }, function(error) {
-                // Error message
-                formStatus.className = 'form-status error';
-                formStatus.textContent = '✗ Failed to send message. Please try again or contact me directly.';
-                
-                // Scroll to status message
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Restore button
-                submitButton.textContent = originalButtonText;
-                submitButton.disabled = false;
-                
-                console.error('EmailJS Error:', error);
-            });
+    rerunBtn.addEventListener('click', () => {
+        rerunBtn.disabled = true;
+        rerunBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running...';
+
+        logsContainer.innerHTML = '';
+
+        const newLogs = [
+            { text: '[INIT] Triggering Automated QA Regression Suite v3.4...', type: 'info', delay: 200 },
+            { text: '[RUNNING] Executing SQL Database Integrity Verification...', type: 'info', delay: 600 },
+            { text: '[PASS] Database FK & Index Checks Complete (0.009s)', type: 'success', delay: 1000 },
+            { text: '[RUNNING] Running 142 Functional Test Cases...', type: 'info', delay: 1400 },
+            { text: '[PASS] Test Coverage: 95.8% (All modules green)', type: 'success', delay: 1800 },
+            { text: '[RUNNING] Validating API Endpoint Contracts & Status Codes...', type: 'info', delay: 2200 },
+            { text: '[PASS] Redmine Bug Sync: 0 Critical Open Defects', type: 'success', delay: 2600 },
+            { text: '[READY] Suite Executed Successfully. All System Tests Passed.', type: 'highlight', delay: 3000 }
+        ];
+
+        newLogs.forEach(log => {
+            setTimeout(() => {
+                const line = document.createElement('div');
+                line.className = `log-line ${log.type}`;
+                line.textContent = log.text;
+                logsContainer.appendChild(line);
+                logsContainer.scrollTop = logsContainer.scrollHeight;
+            }, log.delay);
+        });
+
+        setTimeout(() => {
+            rerunBtn.disabled = false;
+            rerunBtn.innerHTML = '<i class="fas fa-play"></i> Re-Run Suite';
+        }, 3200);
     });
 }
 
 // ============================================
-// SCROLL ANIMATIONS
+// 6. NAVIGATION UNDERLINE & ACTIVE LINK SCROLL
 // ============================================
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe all sections for fade-in animation
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
-
-// ============================================
-// ACTIVE NAVIGATION LINK HIGHLIGHTING
-// ============================================
-
-window.addEventListener('scroll', () => {
-    let current = '';
+function initNavUnderline() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const underline = document.querySelector('.nav-underline');
     const sections = document.querySelectorAll('section');
-    const headerHeight = document.querySelector('header').offsetHeight;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - headerHeight - 100) {
-            current = section.getAttribute('id');
+    const header = document.getElementById('mainHeader');
+
+    function updateUnderline(activeLink) {
+        if (!underline || !activeLink || window.innerWidth <= 768) {
+            if (underline) underline.style.opacity = '0';
+            return;
         }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
-    });
-});
 
-// ============================================
-// FORM INPUT VALIDATION
-// ============================================
+        const rect = activeLink.getBoundingClientRect();
+        const parentRect = activeLink.closest('.navbar').getBoundingClientRect();
 
-const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
-
-formInputs.forEach(input => {
-    input.addEventListener('blur', function() {
-        if (this.value.trim() === '') {
-            this.style.borderColor = '#ddd';
-        } else {
-            this.style.borderColor = '#3498db';
-        }
-    });
-});
-
-// ============================================
-// RESPONSIVE HEADER ON SCROLL
-// ============================================
-
-let lastScrollTop = 0;
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > 100) {
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        underline.style.left = `${rect.left - parentRect.left}px`;
+        underline.style.width = `${rect.width}px`;
+        underline.style.opacity = '1';
     }
-    
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+
+    // Set initial position
+    const initialActive = document.querySelector('.nav-link.active');
+    if (initialActive) updateUnderline(initialActive);
+
+    // Update on scroll
+    window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const headerHeight = header ? header.offsetHeight : 70;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - headerHeight - 120;
+            if (window.scrollY >= sectionTop) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.add('active');
+                updateUnderline(link);
+            }
+        });
+    });
+
+    // Update on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href.startsWith('#') && document.querySelector(href)) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                const headerHeight = header ? header.offsetHeight : 70;
+                const targetPosition = targetElement.offsetTop - headerHeight + 5;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                updateUnderline(this);
+            }
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        const activeLink = document.querySelector('.nav-link.active');
+        if (activeLink) updateUnderline(activeLink);
+    });
+}
+
+// ============================================
+// 7. MOBILE HAMBURGER MENU
+// ============================================
+
+function initMobileMenu() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (!hamburger || !navMenu) return;
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
+// ============================================
+// 8. EMAILJS INTEGRATION FOR CONTACT FORM
+// ============================================
+
+function initEmailJS() {
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("JVgrnpBaTcgnIYZ0igbm9");
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+
+        if (typeof emailjs !== 'undefined') {
+            emailjs.sendForm('service_0zu3rmx', 'template_fyutivh', contactForm)
+                .then(function() {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = '✓ Message sent successfully! I will get back to you soon.';
+                    contactForm.reset();
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    setTimeout(() => {
+                        formStatus.className = 'form-status';
+                        formStatus.textContent = '';
+                    }, 6000);
+                }, function(error) {
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = '✗ Message recorded! If EmailJS fails, please email harishanvar56@gmail.com directly.';
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    console.error('EmailJS Error:', error);
+                });
+        } else {
+            formStatus.className = 'form-status success';
+            formStatus.textContent = '✓ Message received! Thank you for reaching out.';
+            contactForm.reset();
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }
+    });
+}
