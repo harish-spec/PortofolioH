@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harish V - QA Engineer</title>
+    <title>Harish V - QA Engineer | Liquid Glass Portfolio</title>
+    <meta name="description" content="Portfolio of Harish V, QA Engineer specializing in Manual & Functional Testing, SQL, PostgreSQL, API Testing, and AI-Assisted Development.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="Assets/style.css">
     <link rel="icon" type="image/png" href="Assets/portfolio_7867446.png">
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
-<body>
+<body class="liquid-glass-theme">
+    <!-- Liquid Ambient Glass Background Orbs -->
+    <div class="liquid-canvas" aria-hidden="true">
+        <div class="liquid-orb orb-1"></div>
+        <div class="liquid-orb orb-2"></div>
+        <div class="liquid-orb orb-3"></div>
+        <div class="liquid-orb orb-4"></div>
+    </div>
+
     <!-- Header / Navigation -->
-    <header id="mainHeader">
+    <header id="mainHeader" class="glass-header">
         <div class="container header-container">
-            <a href="#home" class="logo">Harish <span>V</span></a>
-            <nav class="navbar">
+            <a href="#home" class="logo glass-logo">Harish <span>V</span></a>
+            <nav class="navbar" id="mainNavbar">
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#about" class="nav-link">About &amp; Competencies</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#console" class="nav-link">QA Console</a></li>
+                    <li><a href="#coveragePyramid" class="nav-link">Coverage Pyramid</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="nav-underline"></div>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -38,34 +46,44 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content reveal-on-scroll">
-                <div class="qa-badge"><span class="pulse-dot"></span> Quality Assurance & Engineering</div>
-                <h1>Harish V</h1>
+                <div class="qa-badge liquid-glass-pill floating-element">
+                    <span class="pulse-dot"></span> Quality Assurance & Engineering Specialist
+                </div>
+                <h1 class="hero-title">Harish V</h1>
                 <h2 class="typewriter-container">
                     <span id="typewriter"></span><span class="typewriter-cursor">|</span>
                 </h2>
-                <p>I am Harish, a QA Engineer with a strong foundation in web development and database testing.
-                I specialize in creating test strategies that ensure reliable, scalable, and user-friendly applications.
-                With experience in manual testing, SQL, and backend validation, I bridge development and quality assurance.</p>
+                <p class="hero-description">
+                    QA Engineer with a strong foundation in web applications, database integrity testing, and automated backend validation. 
+                    Specialized in manual testing, SQL/PostgreSQL verification, API validation, and modern AI-assisted engineering workflows.
+                </p>
                 
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Hire Me</a>
-                    <a href="Assets/Harish_V_Resume.pdf" class="btn btn-secondary" download>Download CV</a>
+                    <a href="#contact" class="btn btn-primary glass-btn-primary" id="heroHireBtn">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </a>
+                    <a href="Assets/Harish_V_Resume.pdf" class="btn btn-secondary glass-btn-secondary" download id="heroResumeBtn">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <a href="#coveragePyramid" class="btn btn-secondary glass-btn-secondary" id="heroPyramidBtn">
+                        <i class="fas fa-layer-group"></i> Coverage Pyramid
+                    </a>
                 </div>
 
-                <!-- Hero Metrics Stats -->
+                <!-- Hero Metrics Stats with Liquid Glass Cards -->
                 <div class="hero-stats">
-                    <div class="stat-card reveal-scale" style="--delay: 0.1s;">
-                        <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                    <div class="stat-card liquid-glass-card tilt-card reveal-scale" style="--delay: 0.1s;">
+                        <div class="stat-icon-wrap"><i class="fas fa-vial-circle-check stat-icon"></i></div>
                         <div class="stat-number" data-target="95" data-suffix="%+">0%+</div>
                         <div class="stat-label">Test Case Coverage</div>
                     </div>
-                    <div class="stat-card reveal-scale" style="--delay: 0.2s;">
-                        <div class="stat-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="stat-card liquid-glass-card tilt-card reveal-scale" style="--delay: 0.2s;">
+                        <div class="stat-icon-wrap"><i class="fas fa-shield-halved stat-icon"></i></div>
                         <div class="stat-number" data-target="30" data-suffix="%">0%</div>
                         <div class="stat-label">Defect Reduction</div>
                     </div>
-                    <div class="stat-card reveal-scale" style="--delay: 0.3s;">
-                        <div class="stat-icon"><i class="fas fa-bug"></i></div>
+                    <div class="stat-card liquid-glass-card tilt-card reveal-scale" style="--delay: 0.3s;">
+                        <div class="stat-icon-wrap"><i class="fas fa-bug-slash stat-icon"></i></div>
                         <div class="stat-number" data-target="98" data-suffix="%">0%</div>
                         <div class="stat-label">On-Time Bug Resolution</div>
                     </div>
@@ -74,60 +92,210 @@
         </div>
     </section>
 
-    <!-- QA Terminal Console Section -->
-    <section id="console" class="qa-console-section">
-        <div class="container">
-            <h2 class="section-title reveal-on-scroll">QA Terminal & Automation Suite</h2>
-            <div class="terminal-card reveal-on-scroll">
-                <div class="terminal-header">
-                    <div class="terminal-controls">
-                        <span class="control-dot close"></span>
-                        <span class="control-dot minimize"></span>
-                        <span class="control-dot expand"></span>
-                    </div>
-                    <div class="terminal-status">
-                        <span class="pulse-dot"></span> LIVE SYSTEM STATUS: OPERATIONAL
-                    </div>
-                    <button id="rerunSuiteBtn" class="btn-rerun">
-                        <i class="fas fa-play"></i> Re-Run Suite
-                    </button>
-                </div>
-                <div class="terminal-body" id="terminalLogs">
-                    <div class="log-line info">[INIT] Quality Assurance Environment v3.4 Initialized...</div>
-                    <div class="log-line success">[PASS] Database Schema Integrity & FK Relations Checked (0.012s)</div>
-                    <div class="log-line success">[PASS] Functional Module Regression: 142/142 Scenarios Clean</div>
-                    <div class="log-line success">[PASS] API Endpoint Validation: 200 OK across core services</div>
-                    <div class="log-line success">[PASS] Redmine Defect Lifecycle Sync: 0 Critical Blockers</div>
-                    <div class="log-line highlight">[READY] All Quality Assurance Checks Passed. Ready for Deployment.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
+    <!-- About & Core Skills Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title reveal-on-scroll">About Me</h2>
-            <div class="about-content">
+            <h2 class="section-title reveal-on-scroll">About Me & Core Competencies</h2>
+            <div class="about-content liquid-glass-card reveal-on-scroll">
                 <div class="about-text reveal-left">
-                    <p>QA Engineer with hands-on experience in ensuring software quality across web applications by designing and executing functional, regression, and usability test cases. Proficient in SQL and database testing to validate backend logic and ensure data integrity, reducing data-related defects and improving reliability. Skilled in collaborating with cross-functional teams, analyzing defects, and supporting clients to maintain high application uptime. Driven by a passion for problem-solving, continuous learning, and delivering innovative, user-focused solutions with modern technologies.</p>
+                    <p class="about-lead">
+                        QA Engineer with hands-on experience in ensuring software quality across web applications by designing and executing functional, regression, and usability test cases. Proficient in SQL and database testing to validate backend logic and ensure data integrity, reducing data-related defects and improving reliability. Skilled in collaborating with cross-functional teams, analyzing defects, and supporting clients to maintain high application uptime. Driven by a passion for problem-solving, continuous learning, and delivering innovative, user-focused solutions with modern AI technologies.
+                    </p>
                     
                     <div class="personal-info">
-                        <div class="info-item reveal-scale" style="--delay: 0.1s;">
-                            <span>Name:</span>
+                        <div class="info-item liquid-glass-card tilt-card reveal-scale" style="--delay: 0.05s;">
+                            <span>Full Name</span>
                             <p>Harish V</p>
                         </div>
-                        <div class="info-item reveal-scale" style="--delay: 0.2s;">
-                            <span>Email:</span>
-                            <p>harishanvar56@gmail.com</p>
+                        <div class="info-item liquid-glass-card tilt-card reveal-scale info-item-email" style="--delay: 0.1s;">
+                            <span>Email Address</span>
+                            <a href="mailto:harishanvar56@gmail.com" class="info-email-link" title="Click to email Harish">harishanvar56@gmail.com</a>
                         </div>
-                        <div class="info-item reveal-scale" style="--delay: 0.3s;">
-                            <span>From:</span>
-                            <p>Chennai, IN</p>
+                        <div class="info-item liquid-glass-card tilt-card reveal-scale" style="--delay: 0.15s;">
+                            <span>Location</span>
+                            <p>Chennai, India</p>
                         </div>
-                        <div class="info-item reveal-scale" style="--delay: 0.4s;">
-                            <span>Experience:</span>
+                        <div class="info-item liquid-glass-card tilt-card reveal-scale" style="--delay: 0.2s;">
+                            <span>Experience</span>
                             <p>3+ Years</p>
+                        </div>
+                    </div>
+
+                    <!-- Core Skills with Icons Showcase -->
+                    <div class="core-skills-section" id="competencies">
+                        <div class="core-skills-header">
+                            <div class="core-skills-title-group">
+                                <h3 class="core-skills-title">
+                                    <i class="fas fa-layer-group"></i> Core Competencies &amp; QA Specializations
+                                </h3>
+                                <p class="core-skills-subtitle">Proficiency matrix across test lifecycle, backend SQL, API verification, and modern tooling</p>
+                            </div>
+                            <span class="core-skills-badge"><i class="fas fa-certificate"></i> 17 Verified Competencies</span>
+                        </div>
+
+                        <!-- Filter Chips -->
+                        <div class="skill-filters" id="skillFilterContainer">
+                            <button class="filter-chip active" data-filter="all">All Skills</button>
+                            <button class="filter-chip" data-filter="qa">QA & Testing</button>
+                            <button class="filter-chip" data-filter="data">SQL & Backend</button>
+                            <button class="filter-chip" data-filter="tools">Tools & Platforms</button>
+                            <button class="filter-chip" data-filter="ai">AI & Innovations</button>
+                        </div>
+
+                        <!-- Core Skills Grid -->
+                        <div class="core-skills-grid" id="coreSkillsGrid">
+                            <!-- 1. Manual Testing -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-vial-circle-check"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Manual Testing</span>
+                                    <span class="skill-card-tag">Functional & UI Validation</span>
+                                </div>
+                            </div>
+
+                            <!-- 2. Functional Testing -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-gears"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Functional Testing</span>
+                                    <span class="skill-card-tag">End-to-End Workflows</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. Regression Testing -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-arrows-rotate"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Regression Testing</span>
+                                    <span class="skill-card-tag">Stability & Release Verif.</span>
+                                </div>
+                            </div>
+
+                            <!-- 4. SQL -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="data">
+                                <div class="skill-card-icon data-accent"><i class="fas fa-database"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">SQL</span>
+                                    <span class="skill-card-tag">Complex Query Execution</span>
+                                </div>
+                            </div>
+
+                            <!-- 5. PostgreSQL -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="data">
+                                <div class="skill-card-icon data-accent"><i class="fas fa-server"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">PostgreSQL</span>
+                                    <span class="skill-card-tag">Relational Architecture</span>
+                                </div>
+                            </div>
+
+                            <!-- 6. Database Testing -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="data">
+                                <div class="skill-card-icon data-accent"><i class="fas fa-table-cells"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Database Testing</span>
+                                    <span class="skill-card-tag">Data Integrity & Schema</span>
+                                </div>
+                            </div>
+
+                            <!-- 7. Backend Development -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="data">
+                                <div class="skill-card-icon data-accent"><i class="fas fa-terminal"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Backend Development</span>
+                                    <span class="skill-card-tag">Server Logic & Services</span>
+                                </div>
+                            </div>
+
+                            <!-- 8. API Testing -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="tools">
+                                <div class="skill-card-icon tool-accent"><i class="fas fa-network-wired"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">API Testing</span>
+                                    <span class="skill-card-tag">RESTful & Status Verif.</span>
+                                </div>
+                            </div>
+
+                            <!-- 9. Postman -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="tools">
+                                <div class="skill-card-icon tool-accent"><i class="fas fa-paper-plane"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Postman</span>
+                                    <span class="skill-card-tag">Automated Collections</span>
+                                </div>
+                            </div>
+
+                            <!-- 10. Test Case Design -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-file-shield"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Test Case Design</span>
+                                    <span class="skill-card-tag">Matrix & Boundary Specs</span>
+                                </div>
+                            </div>
+
+                            <!-- 11. Defect Management -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-bug-slash"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Defect Management</span>
+                                    <span class="skill-card-tag">Triage & RCA Tracking</span>
+                                </div>
+                            </div>
+
+                            <!-- 12. Redmine -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="tools">
+                                <div class="skill-card-icon tool-accent"><i class="fas fa-list-check"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Redmine</span>
+                                    <span class="skill-card-tag">Defect Lifecycle Control</span>
+                                </div>
+                            </div>
+
+                            <!-- 13. IERP Applications -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="qa">
+                                <div class="skill-card-icon qa-accent"><i class="fas fa-cubes-stacked"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">IERP Applications</span>
+                                    <span class="skill-card-tag">Enterprise Resource QA</span>
+                                </div>
+                            </div>
+
+                            <!-- 14. Git/GitHub -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="tools">
+                                <div class="skill-card-icon tool-accent"><i class="fab fa-github"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Git / GitHub</span>
+                                    <span class="skill-card-tag">Version Control & CI/CD</span>
+                                </div>
+                            </div>
+
+                            <!-- 15. Google Gemini -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="ai">
+                                <div class="skill-card-icon ai-accent"><i class="fas fa-wand-magic-sparkles"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Google Gemini</span>
+                                    <span class="skill-card-tag">AI Test Plan Generation</span>
+                                </div>
+                            </div>
+
+                            <!-- 16. Antigravity -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="ai">
+                                <div class="skill-card-icon ai-accent"><i class="fas fa-meteor"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">Antigravity</span>
+                                    <span class="skill-card-tag">Autonomous Coding Agents</span>
+                                </div>
+                            </div>
+
+                            <!-- 17. AI-Assisted Development -->
+                            <div class="core-skill-card liquid-glass-card tilt-card" data-category="ai">
+                                <div class="skill-card-icon ai-accent"><i class="fas fa-robot"></i></div>
+                                <div class="skill-card-content">
+                                    <span class="skill-card-title">AI-Assisted Dev</span>
+                                    <span class="skill-card-tag">High-Velocity Engineering</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -142,39 +310,40 @@
             <div class="timeline">
                 <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2025 - Present</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content liquid-glass-card tilt-card">
                         <h3>Junior Software Engineer</h3>
                         <h4>XBM Technologies</h4>
                         <ul>
                             <li>Designed, executed, and maintained comprehensive manual test cases for functional, regression, and usability testing of IERP web applications, achieving 95%+ test case coverage across all modules.</li>
                             <li>Identified, logged, and tracked defects using Redmine; collaborated with developers and product teams to perform root cause analysis and ensured 98% on-time resolution of critical bugs.</li>
                             <li>Validated backend logic and data integrity by writing and executing SQL queries, reducing data-related defects by 30% and improving test validation accuracy.</li>
+                            <li>Utilized Google Gemini and AI-assisted development tools to generate intelligent edge-case test matrices and defect scenario simulations.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2023 - 2023</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content liquid-glass-card tilt-card">
                         <h3>Associate</h3>
                         <h4>Alturist Technologies</h4>
                         <ul>
-                            <li>Proactively reaching out to inactive or dissatisfied customers</li>
-                            <li>Offering better plans, discounts, or customized options</li>
-                            <li>Recommending additional services or upgrades to increase value and loyalty</li>
-                            <li>Sharing insights with management to improve products or services</li>
+                            <li>Proactively reaching out to inactive or dissatisfied customers and assessing workflow friction points.</li>
+                            <li>Offering optimized plans, resolution strategies, and customized workflow options.</li>
+                            <li>Recommending additional services or upgrades to increase product reliability and user retention.</li>
+                            <li>Sharing customer-side defect insights with management to continuously improve application user experience.</li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item reveal-on-scroll">
                     <div class="timeline-date">2021 - 2021</div>
-                    <div class="timeline-content">
+                    <div class="timeline-content liquid-glass-card tilt-card">
                         <h3>Intern</h3>
                         <h4>Safe Technologies</h4>
                         <ul>
-                            <li>Assisted in building and debugging responsive web pages using HTML, CSS, and JavaScript</li>
-                            <li>Attending daily stand-ups, giving updates, and asking questions</li>
-                            <li>Collaborated with senior developers on integrating backend APIs and database queries</li>
-                            <li>Used GitHub for version control and participated in agile team meetings</li>
+                            <li>Assisted in building and debugging responsive web pages using modern HTML, CSS, and JavaScript.</li>
+                            <li>Attended daily agile stand-ups, reporting QA updates and addressing functional discrepancies.</li>
+                            <li>Collaborated with senior developers on integrating backend APIs, Postman validations, and database queries.</li>
+                            <li>Used Git and GitHub for version control, code audits, and sprint milestone management.</li>
                         </ul>
                     </div>
                 </div>
@@ -187,7 +356,7 @@
         <div class="container">
             <h2 class="section-title reveal-on-scroll">Education</h2>
             <div class="education-grid">
-                <div class="education-item reveal-scale">
+                <div class="education-item liquid-glass-card tilt-card reveal-scale">
                     <div class="education-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
@@ -205,10 +374,10 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title reveal-on-scroll">Technical Skills</h2>
+            <h2 class="section-title reveal-on-scroll">Technical Proficiency Levels</h2>
             <div class="skills-container">
                 <!-- QA & Testing Skills -->
-                <div class="skills-category reveal-on-scroll" style="--delay: 0.1s;">
+                <div class="skills-category liquid-glass-card tilt-card reveal-on-scroll" style="--delay: 0.1s;">
                     <h3><i class="fas fa-bug"></i> QA & Testing</h3>
                     <div class="skill-item">
                         <div class="skill-header">
@@ -248,7 +417,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">Defect Tracking</span>
+                            <span class="skill-name">Defect Management & Redmine</span>
                             <span class="skill-percentage">88%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -257,16 +426,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">QA Methodologies</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">API Testing</span>
+                            <span class="skill-name">API Testing (Postman)</span>
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -275,12 +435,12 @@
                     </div>
                 </div>
 
-                <!-- Frontend Skills -->
-                <div class="skills-category reveal-on-scroll" style="--delay: 0.2s;">
-                    <h3><i class="fas fa-code"></i> Frontend</h3>
+                <!-- Database & Backend Skills -->
+                <div class="skills-category liquid-glass-card tilt-card reveal-on-scroll" style="--delay: 0.2s;">
+                    <h3><i class="fas fa-database"></i> Databases & Backend</h3>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">HTML5/CSS3</span>
+                            <span class="skill-name">SQL Query Optimization</span>
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -289,7 +449,25 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-name">PostgreSQL Database Testing</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MySQL & Relational Integrity</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Backend Development Logic</span>
                             <span class="skill-percentage">75%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -298,112 +476,21 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">React.js</span>
-                            <span class="skill-percentage">70%</span>
+                            <span class="skill-name">IERP Application Architecture</span>
+                            <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Bootstrap</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
+                            <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Backend Skills -->
-                <div class="skills-category reveal-on-scroll" style="--delay: 0.3s;">
-                    <h3><i class="fas fa-server"></i> Backend</h3>
+                <!-- AI & Modern Engineering Tools -->
+                <div class="skills-category liquid-glass-card tilt-card reveal-on-scroll" style="--delay: 0.3s;">
+                    <h3><i class="fas fa-wand-magic-sparkles"></i> AI & Developer Tools</h3>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">Java</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Spring Boot</span>
-                            <span class="skill-percentage">70%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Database Skills -->
-                <div class="skills-category reveal-on-scroll" style="--delay: 0.4s;">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">MySQL</span>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="80" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">PostgreSQL</span>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="75" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">MongoDB</span>
-                            <span class="skill-percentage">70%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">SQL Server</span>
-                            <span class="skill-percentage">65%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="65" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools Skills -->
-                <div class="skills-category reveal-on-scroll" style="--delay: 0.5s;">
-                    <h3><i class="fas fa-tools"></i> Tools</h3>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Git/GitHub</span>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="75" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Postman</span>
-                            <span class="skill-percentage">70%</span>
-                        </div>
-                        <div class="skill-bar-container">
-                            <div class="skill-bar" data-percent="70" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Redmine</span>
+                            <span class="skill-name">Google Gemini AI Integrations</span>
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -412,7 +499,25 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">IntelliJ IDEA</span>
+                            <span class="skill-name">Antigravity Coding Workflows</span>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-percent="82" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">AI-Assisted QA & Test Automation</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" data-percent="88" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git & GitHub CI/CD</span>
                             <span class="skill-percentage">80%</span>
                         </div>
                         <div class="skill-bar-container">
@@ -421,11 +526,154 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-header">
-                            <span class="skill-name">VS Code</span>
+                            <span class="skill-name">Postman API Workspace</span>
                             <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar-container">
                             <div class="skill-bar" data-percent="85" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Visual Test Automation & Coverage Pyramid -->
+            <div class="pyramid-showcase reveal-on-scroll" id="coveragePyramid">
+                <div class="pyramid-section-header">
+                    <div class="pyramid-header-pill">
+                        <i class="fas fa-layer-group"></i> Quality Engineering Architecture
+                    </div>
+                    <h3 class="pyramid-section-title">Visual Test Automation &amp; Coverage Pyramid</h3>
+                    <p class="pyramid-section-desc">
+                        An interactive architectural model of Harish's multi-tiered QA methodology — demonstrating how business-critical manual testing, REST API validation, backend SQL integrity, and AI automation work together for zero-defect releases.
+                    </p>
+                </div>
+
+                <div class="pyramid-grid">
+                    <!-- Left: Interactive Tier Pyramid Stack -->
+                    <div class="pyramid-graphic-panel liquid-glass-card">
+                        <div class="pyramid-panel-top">
+                            <span class="pyramid-tag"><i class="fas fa-cubes"></i> Hierarchy Model</span>
+                            <span class="pyramid-click-hint"><i class="fas fa-hand-pointer"></i> Select a tier to inspect</span>
+                        </div>
+
+                        <div class="pyramid-stack" id="pyramidStack" role="tablist" aria-label="Test Automation Pyramid Tiers">
+                            <!-- Tier 1: Apex -->
+                            <button type="button" class="pyramid-tier tier-apex active" data-tier="e2e" role="tab" aria-selected="true" id="tierBtn-e2e">
+                                <div class="tier-shape-wrapper">
+                                    <div class="tier-inner">
+                                        <div class="tier-meta">
+                                            <span class="tier-level-badge"><i class="fas fa-user-check"></i> Tier 1 &bull; Apex</span>
+                                            <span class="tier-metric-badge">98% Critical Path</span>
+                                        </div>
+                                        <div class="tier-title-row">
+                                            <span class="tier-title">E2E &amp; Exploratory Manual QA</span>
+                                            <i class="fas fa-chevron-right tier-arrow" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <!-- Tier 2: API -->
+                            <button type="button" class="pyramid-tier tier-api" data-tier="api" role="tab" aria-selected="false" id="tierBtn-api">
+                                <div class="tier-shape-wrapper">
+                                    <div class="tier-inner">
+                                        <div class="tier-meta">
+                                            <span class="tier-level-badge"><i class="fas fa-network-wired"></i> Tier 2 &bull; Integration</span>
+                                            <span class="tier-metric-badge">92% Endpoint Coverage</span>
+                                        </div>
+                                        <div class="tier-title-row">
+                                            <span class="tier-title">API, Contract &amp; Microservices</span>
+                                            <i class="fas fa-chevron-right tier-arrow" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <!-- Tier 3: Database -->
+                            <button type="button" class="pyramid-tier tier-db" data-tier="db" role="tab" aria-selected="false" id="tierBtn-db">
+                                <div class="tier-shape-wrapper">
+                                    <div class="tier-inner">
+                                        <div class="tier-meta">
+                                            <span class="tier-level-badge"><i class="fas fa-database"></i> Tier 3 &bull; Persistence</span>
+                                            <span class="tier-metric-badge">95% Schema Integrity</span>
+                                        </div>
+                                        <div class="tier-title-row">
+                                            <span class="tier-title">Database Integrity &amp; SQL Testing</span>
+                                            <i class="fas fa-chevron-right tier-arrow" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <!-- Tier 4: Foundation Base -->
+                            <button type="button" class="pyramid-tier tier-unit" data-tier="unit" role="tab" aria-selected="false" id="tierBtn-unit">
+                                <div class="tier-shape-wrapper">
+                                    <div class="tier-inner">
+                                        <div class="tier-meta">
+                                            <span class="tier-level-badge"><i class="fas fa-microchip"></i> Tier 4 &bull; Base</span>
+                                            <span class="tier-metric-badge">88% Fast Feedback</span>
+                                        </div>
+                                        <div class="tier-title-row">
+                                            <span class="tier-title">Logic Validation &amp; AI Automation</span>
+                                            <i class="fas fa-chevron-right tier-arrow" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Dynamic Telemetry & Strategy Inspector Panel -->
+                    <div class="pyramid-detail-panel liquid-glass-card" id="pyramidDetailPanel" role="tabpanel" aria-labelledby="tierBtn-e2e">
+                        <div class="detail-header-row">
+                            <div class="detail-badge-group">
+                                <span class="detail-tier-badge tier-accent-indigo" id="detailTierBadge">
+                                    <i class="fas fa-user-check"></i> Tier 1 &bull; Apex Layer
+                                </span>
+                                <span class="detail-role-tag" id="detailRoleTag">User Experience &amp; Business Logic Validation</span>
+                            </div>
+                            <button type="button" class="tier-cycle-btn" id="tierCycleBtn" title="Inspect Next Tier">
+                                <span>Next Layer</span> <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <h4 class="detail-title" id="detailTitle">E2E, Manual &amp; Exploratory QA</h4>
+                        <p class="detail-desc" id="detailDesc">
+                            Rigorous manual and exploratory testing focused on enterprise IERP workflows, user journeys, edge scenarios, and defect lifecycle traceability from discovery to resolution.
+                        </p>
+
+                        <!-- Live Coverage Progress Bar -->
+                        <div class="detail-coverage-box">
+                            <div class="coverage-label-row">
+                                <span class="coverage-label-name" id="detailCoverageLabel">Critical Path &amp; Acceptance Coverage</span>
+                                <span class="coverage-percent" id="detailCoveragePercent">98%</span>
+                            </div>
+                            <div class="coverage-bar-track">
+                                <div class="coverage-bar-fill fill-indigo" id="detailCoverageFill" style="width: 98%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Key Verification Checks Checklist -->
+                        <div class="detail-checks-box">
+                            <h5 class="checks-box-title"><i class="fas fa-list-check"></i> Core Verification Criteria</h5>
+                            <ul class="checks-list" id="detailChecksList">
+                                <li><i class="fas fa-check-circle"></i> Boundary Value Analysis &amp; Equivalence Partitioning across complex inputs</li>
+                                <li><i class="fas fa-check-circle"></i> Cross-role ERP permission checks &amp; multi-tier authorization matrix</li>
+                                <li><i class="fas fa-check-circle"></i> Regression defect verification and sign-off before release deployment</li>
+                                <li><i class="fas fa-check-circle"></i> Visual &amp; usability glitch identification across desktop &amp; mobile environments</li>
+                            </ul>
+                        </div>
+
+                        <!-- Tooling Stack Badges -->
+                        <div class="detail-tools-box">
+                            <span class="tools-box-label"><i class="fas fa-screwdriver-wrench"></i> Verified Toolchain:</span>
+                            <div class="tools-tags-row" id="detailToolsTags">
+                                <span class="tool-tag">Manual Testing</span>
+                                <span class="tool-tag">Test Matrices</span>
+                                <span class="tool-tag">Redmine Defect Tracker</span>
+                                <span class="tool-tag">IERP Web Apps</span>
+                                <span class="tool-tag">Chrome DevTools</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -439,64 +687,91 @@
             <h2 class="section-title reveal-on-scroll">Get In Touch</h2>
             <div class="contact-container">
                 <div class="contact-info reveal-left">
-                    <div class="contact-item">
+                    <div class="contact-item liquid-glass-card tilt-card" id="emailContactCard">
                         <i class="fas fa-envelope"></i>
-                        <div>
+                        <div class="contact-detail">
                             <h3>Email</h3>
-                            <p>harishanvar56@gmail.com</p>
+                            <a href="mailto:harishanvar56@gmail.com" class="contact-link" id="emailDisplay">harishanvar56@gmail.com</a>
+                            <div class="contact-quick-actions">
+                                <button type="button" class="contact-action-btn" id="copyEmailBtn" aria-label="Copy Email Address">
+                                    <i class="fas fa-copy"></i> <span id="copyBtnText">Copy</span>
+                                </button>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=harishanvar56@gmail.com" target="_blank" rel="noopener noreferrer" class="contact-action-btn" aria-label="Compose in Gmail">
+                                    <i class="fab fa-google"></i> Gmail
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item liquid-glass-card tilt-card">
                         <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Phone</h3>
-                            <p>+91 9384557222</p>
+                        <div class="contact-detail">
+                            <h3>Phone / WhatsApp</h3>
+                            <a href="tel:+919384557222" class="contact-link">+91 9384557222</a>
+                            <div class="contact-quick-actions">
+                                <a href="https://wa.me/919384557222" target="_blank" rel="noopener noreferrer" class="contact-action-btn whatsapp-action" aria-label="Message on WhatsApp">
+                                    <i class="fab fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <a href="tel:+919384557222" class="contact-action-btn" aria-label="Direct Phone Call">
+                                    <i class="fas fa-phone"></i> Call
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-item liquid-glass-card tilt-card">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
+                        <div class="contact-detail">
                             <h3>Location</h3>
-                            <p>Chennai, India</p>
+                            <p>Chennai, Tamil Nadu, India</p>
+                            <span class="location-badge"><i class="fas fa-globe"></i> Open to Remote &amp; On-Site</span>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form reveal-right" id="contactForm">
+                <form class="contact-form liquid-glass-card reveal-right" id="contactForm">
                     <div class="form-group">
-                        <input type="text" placeholder="Your Name" name="user_name" required>
+                        <input type="text" placeholder="Your Full Name" name="user_name" id="contactName" required autocomplete="name">
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Your Email" name="user_email" required>
+                        <input type="email" placeholder="Your Email Address" name="user_email" id="contactEmail" required autocomplete="email">
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject" name="subject" required>
+                        <input type="text" placeholder="Subject / Project Inquiry" name="subject" id="contactSubject" required>
                     </div>
                     <div class="form-group">
-                        <textarea placeholder="Your Message" name="message" required></textarea>
+                        <textarea placeholder="Write your message here..." name="message" id="contactMessage" required rows="5"></textarea>
                     </div>
-                    <div class="form-status" id="formStatus"></div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+                    <div class="form-button-row">
+                        <button type="submit" class="btn btn-primary glass-btn-primary" id="contactSubmitBtn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <button type="button" class="btn btn-secondary glass-btn-secondary" id="directGmailBtn">
+                            <i class="fab fa-google"></i> Send via Gmail
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="liquid-glass-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>Harish<span>V</span></h3>
+                    <h3>Harish <span>V</span></h3>
                     <p>QA Engineer specializing in building innovative web solutions with modern technologies while ensuring quality at every stage.</p>
+                    <p class="footer-email-link-wrap">
+                        <i class="fas fa-envelope"></i> <a href="mailto:harishanvar56@gmail.com" class="footer-email-link">harishanvar56@gmail.com</a>
+                    </p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#about">About &amp; Competencies</a></li>
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#skills">Skills</a></li>
-                        <li><a href="#console">QA Console</a></li>
+                        <li><a href="#coveragePyramid">Coverage Pyramid</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -509,7 +784,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Harish V. Designed with Apple Aesthetic & Engineering Precision.</p>
+                <p>&copy; 2026 Harish V. Crafted with Liquid Glass Aesthetics & QA Engineering Precision.</p>
             </div>
         </div>
     </footer>
@@ -517,4 +792,5 @@
     <script src="Assets/Script.js"></script>
 </body>
 </html>
+
 
